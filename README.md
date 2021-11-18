@@ -18,7 +18,9 @@
 
 ### Raw dumps [Gomez2021escar]
 
-## Tools
+## Acquisition methods
+
+There are different methdos to acquire data from airbag ECUs. Either physically from the storage systems directly (e.g. embedded forensic methods) or by using tools.
 
 ### Tesla EDR tool
 
@@ -42,3 +44,5 @@ The PDF report contains different hexadecimal information at the end. We decoded
 | fd67.bin | Left Side Door Pressure Sensor |
 
 ### Bosch CDR
+
+## Analysis methods
