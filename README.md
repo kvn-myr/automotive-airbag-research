@@ -12,11 +12,15 @@
 
 ### Gen 11 GM [Gomez2021escar]
 
-### Crashdata (EEPROM) [Gomez2021escar]
+No data format, just the name of an airbag control unit from the manufacturer GM.
+
+### Raw dumps / Crashdata (EEPROM) [Gomez2021escar]
+
+Collect raw data from EEPROM directly.
 
 ### DTCs [Gomez2021escar]
 
-### Raw dumps [Gomez2021escar]
+Is rather related to the engine control module (ECM) than to the airbag ECU.
 
 ## Acquisition methods
 
@@ -44,5 +48,68 @@ The PDF report contains different hexadecimal information at the end. We decoded
 | fd67.bin | Left Side Door Pressure Sensor |
 
 ### Bosch CDR
+
+We extracted multiple sqlite3 databases from Bosch's CDR software. Those are used for interpretation of the hexadecimal data.
+
+Currenlty supported vehicles (`SELECT System FROM CommInfo` in one of the databases) are:
+
+- AUDI001
+- BENTLEY03
+- BENTLEY04
+- BMW004
+- BMW005
+- FRACO
+- LAMB03
+- TOYOTA004
+- VOLVOGEN
+
+Vehicle coverage based on Bosch:
+
+- Acura
+- Alfa Romeo
+- Audi
+- Bentley
+- BMW
+- Buick
+- Cadillac
+- Chevrolet
+- Chrysler
+- Dodge
+- Fiat
+- Ford
+- GMC
+- Holden
+- Honda
+- Hummer
+- Infiniti
+- Jeep
+- Lamborghini
+- Lancia
+- Lexus
+- Lincoln
+- Maserati
+- Mazda
+- Mercedes-Benz
+- Mercury
+- MINI
+- Nissan
+- Oldsmobile
+- Opel
+- Pontiac
+- RAM
+- Rolls-Royce
+- Saturn
+- Scion
+- smart
+- SRT
+- Suzuki
+- Toyota
+- Volkswagen
+- Volvo
+- and others
+
+One of the databases (`CRD_l2.sqlite3`) contains information about the location of specific events. The tools extracts 21 unique DPIDs. Those are: `{'$7B', '$79', '$76', '$6F', '$6D', '$69', '$78', '$77', '$6A', '$70', '$74', '$7A', '$75', '$6E', '$72', '$6C', '$6B', '$68', '$73', '$71', '$67'}`
+
+For example: `'DPID $6C Bytes 4-5', None, 'DTC number for fault #4'` or `'DPID $75 Byte 1', None, 'SDM Recorded Vehicle Velocity Change for Axis #1 (140 msec)', None, 'MPH'), (88, 0, 0, 0, 'DPID $75 Byte 3', None, 'SDM Recorded Vehicle Velocity Change for Axis #1 (150 msec)'`.
 
 ## Analysis methods
